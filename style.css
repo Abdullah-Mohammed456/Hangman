@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+body {
+  background-color: #222;
+}
+.game-container {
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #eee;
+}
+header {
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sidebar-info {
+  font-size: 17px;
+  text-align: right;
+}
+#word-source {
+  color: #ff3c00;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+hr {
+  margin: 10px 0px;
+  border: 0.5px solid #eee;
+}
+
+.game-play {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
+.draw {
+  position: relative;
+  width: 150%;
+  height: 400px;
+  margin: 10px 0px;
+}
+
+.stand::before {
+  content: "";
+  width: 5.5px;
+  height: 300px;
+  background-color: #eee;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  display: none;
+}
+.stand::after {
+  content: "";
+  width: 80px;
+  height: 5.5px;
+  background-color: #eee;
+  position: absolute;
+  top: calc(15% + 300px);
+  left: calc(20% - 37px);
+  display: none;
+}
+.hang:before {
+  content: "";
+  width: 120px;
+  height: 5.5px;
+  background-color: #eee;
+  position: absolute;
+  top: calc(15% + 15px);
+  left: 20%;
+  display: none;
+}
+.hang:after {
+  content: "";
+  width: 5.5px;
+  height: 50px;
+  background-color: #eee;
+  position: absolute;
+  top: calc(15% + 15px);
+  display: none;
+  left: calc(20% + 120px - 2.75px);
+}
+
+.rope {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  border: dashed 5.5px #eee;
+  top: calc(27% + 12px);
+  display: none;
+  left: calc(16% + 126px - 2.75px);
+}
+
+.head {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  border: solid 5.5px #eee;
+  top: 135px;
+  display: none;
+  left: calc(16% + 138px);
+}
+.body {
+  width: 5.5px;
+  height: 120px;
+  background-color: #eee;
+  position: absolute;
+  top: 185px;
+  display: none;
+  left: calc(16% + 163px - 2.75px);
+}
+
+.hands:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 5.5px;
+  background-color: #eee;
+  top: 220px;
+  left: calc(18% + 143px - 2.75px);
+  transform: rotate(-30deg);
+}
+.hands:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 5.5px;
+  background-color: #eee;
+  top: 220px;
+  left: calc(14.5% + 143px - 2.75px);
+  transform: rotate(30deg);
+}
+.hands {
+  display: none;
+}
+
+.legs:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 5.5px;
+  background-color: #eee;
+  top: 310px;
+  left: calc(18% + 143px - 2.75px);
+  transform: rotate(30deg);
+}
+.legs:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 5.5px;
+  background-color: #eee;
+  top: 310px;
+  left: calc(14.5% + 143px - 2.75px);
+  transform: rotate(-30deg);
+}
+.legs {
+  display: none;
+}
+
+.error-1 .stand::after {
+display: block;
+}
+.error-2 .stand::before {
+display: block;
+}
+.error-3 .hang::before{
+display: block;
+}
+.error-4 .hang::after {
+display: block;
+}
+.error-5 .rope {
+display: block;
+}
+.error-6 .head {
+display: block;
+}
+.error-7 .body {
+display: block;
+}
+.error-8 .hands {
+display: block;
+}
+.error-9 .legs {
+display: block;
+}
+.alphabet {
+  text-align: center;
+  margin-top: 150px;
+}
+.alphabet span {
+  font-size: 15px;
+  padding: 15px;
+  background: #555;
+  margin: 5px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.words-container {
+  display: flex;
+  justify-content: center;
+}
+.words-container span {
+  background-color: #555;
+  padding: 20px;
+  margin: 10px;
+  border: top left radius 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 3.5px #eee solid;
+  cursor: pointer;
+  font-size: 16px;
+}
+.words-container span.empty-letter {
+  background: none;
+  border-bottom: none;
+  position: relative;
+  cursor: auto;
+}
+
+.words-container span.empty-letter:before {
+  content: "";
+  width: 20px;
+  height: 4px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+}
+
+.letter-box.failed {
+  background-color: firebrick;
+  pointer-events: none;
+}
+.letter-box.success {
+  background-color: #6aaa64;
+  pointer-events: none;
+}
+
+.finished{
+  pointer-events: none;
+}
+
+#number-0{
+  user-select: none;
+  opacity: .5;
+}

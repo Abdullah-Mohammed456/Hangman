@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+
+<body>
+    <div class="game-container">
+        <header>
+            <div class="logo">Hangman</div>
+            <div class="sidebar-info">
+                Word Came From: <span id="word-source">Unknown</span>
+            </div>
+        </header>
+        <hr>
+        <div class="game-play">
+            <div class="draw">
+                <div class="stand"></div>
+                <div class="hang"></div>
+                <div class="rope"></div>
+                <div class="man">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="legs"></div>
+                    <div class="hands"></div>
+                </div>
+            </div>
+            <div class="alphabet"></div>
+        </div>
+        <hr>
+        <div class="words-container"></div>
+    </div>
+    <audio id="success" src="success-1-6297.mp3" preload=></audio>
+    <audio id="fail" src="fail-234710.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
